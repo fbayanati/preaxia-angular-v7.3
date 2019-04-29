@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone, OnDestroy } from '@angular/core';
 import * as firebase from 'firebase';
 import * as firebaseui from 'firebaseui';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-preaxia-login',
   templateUrl: './preaxia-login.component.html',
   styleUrls: ['./preaxia-login.component.scss']
 })
-export class PreaxiaLoginComponent implements OnInit {
+export class PreaxiaLoginComponent implements OnInit, OnDestroy {
 
   ui: firebaseui.auth.AuthUI;
 
   constructor(
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private ngZone: NgZone
   ) {
     // TODO :: whatever necessary!
   }
@@ -38,8 +41,16 @@ export class PreaxiaLoginComponent implements OnInit {
     this.ui.start('#firebaseui-auth-container', uiConfig);
   }
 
-  onLoginSuccessful() {
+  onLoginSuccessful(authResult: any) {
 
+    this.ngZone.run( () => {
+      this.router.navigateByUrl('');
+    });
+
+  }
+
+  ngOnDestroy(): void {
+    this.ui.delete();
   }
 
 }
