@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreaxiaFooterComponent implements OnInit {
 
+  year: number;
+
   constructor() { }
 
   ngOnInit() {
+    this.year = new Date().getFullYear()
   }
 
 }

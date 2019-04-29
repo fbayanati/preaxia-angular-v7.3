@@ -1,2 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~firebaseui/dist/firebaseui.css";
+
+
+$font-stack: 'Lato', sans-serif;
+$background-secondary-color: #f2f2f2; 
+$text-primary-color: #2a2a2a;
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+    color: #444;
+	font-weight: normal;//300;
+	font-family: $font-stack;
+	font-size: 17px;
+	line-height: 1;
+}
+
