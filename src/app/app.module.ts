@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PreaxiaFooterComponent } from './ui/preaxia-footer/preaxia-footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PreaxiaFooterComponent
   ],
   imports: [
     BrowserModule,
