@@ -1,3 +1,39 @@
-<p>
-  preaxia-nav works!
-</p>
+<div fxLayout="row" class="prxa-nav-header">
+
+    <div fxFlex="10%" fxFlex.md="10%" class="" >
+    </div>
+
+    <div fxFlex="25%" fxFlex.md="25%" class="prxa-nav-logo" >
+      <img src="../../assets/images/preaxia-logo-new.png" class="prxa-logo" alt="PreAxia">
+      <p class="prxa-logo-text">
+        Building Healthy Connections.
+      </p>
+    </div>
+
+    <div fxFlex="55%" fxFlex.md="55%" fxLayout="column" class="">
+      <div fxFlex="33%" fxFlex.md="33%" fxLayout="row" class="">
+
+        <div fxFlex="25%" fxFlex.md="25%" class="">
+        </div>
+        <div fxFlex="25%" fxFlex.md="25%" class="">
+        </div>
+        <div fxFlex="25%" fxFlex.md="25%" class="">
+        </div>
+        <div fxFlex="25%" fxFlex.md="25%" class="dark_color">
+          <span style="float: right;" *ngIf="authService.isLoggedOut$ | async" (click)="login()">login</span>
+          <span style="float: right;" *ngIf="authService.isLoggedIn$ | async" (click)="logout()">logout</span>
+        </div>
+        
+      </div>
+
+      <div fxFlex="1%" fxFlex.md="1%" class=""></div>
+
+      <div fxFlex="66%" fxFlex.md="66%" class="">
+
+      </div>
+    </div>
+
+    <div fxFlex="10%" fxFlex.md="10%" class="" >
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+$font-stack: 'Lato', sans-serif;
+
+.prxa-nav-logo {
+    display: inline-block;
+    margin-bottom: 0em;
+    vertical-align: middle;
+}
+
+.prxa-logo {
+    max-width: 100%;
+    width: 90px;
+    height: auto;
+    display: inline-block;
+    margin-bottom: 0em;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+.prxa-logo-text {
+	font-family: $font-stack;
+	display: inline-block;
+    white-space: nowrap;
+    font-size: 1em;//15px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+	margin-bottom: 0;
+}
+
+.prxa-nav-header {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 10px 0px;
+    border-top: solid 6px rgba(0,0,0,0.1);
+    background-color: transparent !important;
+    border-bottom: solid 6px rgba(128,128,128,0.3);
+    color: #a1a1a1 !important;
+    z-index: 1;
+}
+
+.dark_color {
+    color: darkslategray !important;
+}
