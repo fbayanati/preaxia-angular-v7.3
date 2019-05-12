@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~firebaseui/dist/firebaseui.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
 $font-stack: 'Lato', sans-serif;
@@ -20,3 +21,15 @@ body {
 	margin-top: 0px;
 }
 
+@media (min-width: 1400px) {
+	body {
+		font-size: 15px;
+	}
+}
+
+//#region Angular Material
+.mat-card-header {
+	justify-content: center;
+}
+
+//#endregion
