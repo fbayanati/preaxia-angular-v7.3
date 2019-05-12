@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: './preaxia-login/preaxia-login.module#PreaxiaLoginModule'
   },
   {
+    path: 'registration',
+    loadChildren: './registration/registration.module#RegistrationModule'
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full'  
@@ -14,7 +18,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }
