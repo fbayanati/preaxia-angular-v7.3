@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { SoleComponent } from './components/sole/sole.component';
 
 const registrationRoutes: Routes = [
   {
     path: '',
     component: RegistrationComponent
   },
-  // {
-  //   path: 'sole',
-  //   component: UserRegistrationComponent
-  // },
+  {
+    path: 'sole',
+    component: SoleComponent
+  },
   // {
   //   path: 'incorporated',
   //   component: EmailValidationComponent
