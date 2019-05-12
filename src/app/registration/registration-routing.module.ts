@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SoleComponent } from './components/sole/sole.component';
+import { IncorporatedComponent } from './components/incorporated/incorporated.component';
 
 const registrationRoutes: Routes = [
   {
@@ -12,10 +13,10 @@ const registrationRoutes: Routes = [
     path: 'sole',
     component: SoleComponent
   },
-  // {
-  //   path: 'incorporated',
-  //   component: EmailValidationComponent
-  // },
+  {
+    path: 'incorporated',
+    component: IncorporatedComponent
+  },
   {
     path: '**',
     redirectTo: '',
