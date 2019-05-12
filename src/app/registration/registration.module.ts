@@ -5,6 +5,8 @@ import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SoleComponent } from './components/sole/sole.component';
 import { IncorporatedComponent } from './components/incorporated/incorporated.component';
+import { MaterialModule } from '../ui/module/material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { IncorporatedComponent } from './components/incorporated/incorporated.co
   ],
   imports: [
     CommonModule,
-    RegistrationRoutingModule
+    RegistrationRoutingModule,
+    MaterialModule,
+    FlexLayoutModule
   ]
 })
 export class RegistrationModule { }

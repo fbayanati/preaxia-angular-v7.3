@@ -1,6 +1,6 @@
 
 .prxa-content h3 {
-    font-size: 2.2em !important;
+    font-size: 2.6em !important;
     padding-bottom: 0.5em;
     font-family: inherit;
     font-weight: 500;
@@ -20,4 +20,41 @@
 
 .prxa-center {
     text-align: center !important;
+}
+
+.prxa-content-header-margin {
+    margin: 0px 15px 15px 15px
+}
+
+.prxa-card {
+    text-align: center;
+    padding: 2rem;
+    height: 80% !important;
+}
+
+.prxa-card-content {
+    color: #a1a1a1 !important;
+    line-height: 1.5rem;
+    font-size: 16px;
+    font-weight: 300;
+    padding-bottom: 64px;
+}
+
+.card-buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem 0 1rem 0;
+    left: 0;
+}
+
+.prxa-btn-primary {
+    background-color: #2c6098;
+    border-color: #2c6098;
+    color: #fff;
+    border-radius: 7px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 1.12em;
+    line-height: 3em !important;
 }
