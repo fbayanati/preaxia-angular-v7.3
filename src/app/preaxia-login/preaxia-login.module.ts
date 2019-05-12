@@ -5,7 +5,9 @@ import { PreaxiaLoginRoutingModule } from './preaxia-login-routing.module';
 import { PreaxiaLoginComponent } from './preaxia-login/preaxia-login.component';
 
 @NgModule({
-  declarations: [PreaxiaLoginComponent],
+  declarations: [
+    PreaxiaLoginComponent
+  ],
   imports: [
     CommonModule,
     PreaxiaLoginRoutingModule
