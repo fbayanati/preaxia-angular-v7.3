@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { SoleComponent } from './components/sole/sole.component';
 
 @NgModule({
   declarations: [
-    RegistrationComponent
+    RegistrationComponent,
+    SoleComponent
   ],
   imports: [
     CommonModule,
