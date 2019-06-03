@@ -1,3 +1,5 @@
+import * as uuid from 'uuid';
+
 enum AccountType {
 	Individual,
 	Corporation
@@ -24,6 +26,7 @@ class User {
         birthday?: string,
         address?: Address
     ) {
+        this.id = uuid.v4();
     }
 }
 
@@ -46,6 +49,6 @@ class Account {
         type: AccountType,
         acceptServiceAgreements?: boolean
     ) {
-
+        this.id = uuid.v4();
     }
 }
