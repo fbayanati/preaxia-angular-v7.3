@@ -7,12 +7,14 @@ import { SoleComponent } from './components/sole/sole.component';
 import { IncorporatedComponent } from './components/incorporated/incorporated.component';
 import { MaterialModule } from '../ui/module/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
   declarations: [
     RegistrationComponent,
     SoleComponent,
-    IncorporatedComponent
+    IncorporatedComponent,
+    AccountComponent
   ],
   imports: [
     CommonModule,
