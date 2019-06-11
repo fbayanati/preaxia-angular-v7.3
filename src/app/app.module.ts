@@ -3,8 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { AppComponent } from './app.component';
 import { PreaxiaFooterComponent } from './ui/preaxia-footer/preaxia-footer.component';
 import { PreaxiaNavComponent } from './ui/preaxia-nav/preaxia-nav.component';
 
@@ -25,6 +27,7 @@ import { MaterialModule } from './ui/module/material/material.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
     FlexLayoutModule,
