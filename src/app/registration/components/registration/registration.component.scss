@@ -1,16 +1,19 @@
 
-.prxa-content h3 {
-    font-size: 2.6em !important;
-    padding-bottom: 0.5em;
-    font-family: inherit;
-    font-weight: 500;
-    margin: 0;
-    line-height: 1.2em;
-}
+.prxa-content {
 
-.prxa-content strong {
-    color: #3e5f93;
-    font-weight: 700;
+    h3 {
+        font-size: 2.6em !important;
+        padding-bottom: 0.5em;
+        font-family: inherit;
+        font-weight: 500;
+        margin: 0;
+        line-height: 1.2em;
+    }
+
+    strong {
+        color: #3e5f93;
+        font-weight: 700;
+    }
 }
 
 .prxa-title {

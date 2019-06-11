@@ -36,8 +36,13 @@
 
       <mat-card-actions>
         <div class="card-buttons">
-           <button mat-button  class="prxa-btn-primary" style="width: calc(100% - 64px + 16px) !important">Register</button>
+            <!-- <a  mat-button  class="prxa-btn-primary" style="width: calc(100% - 64px + 16px) !important" 
+              [routerLink]="['/registration/account', acountType.Individual]">
+              <span class="badge">Register</span>
+            </a> -->
+           <button mat-button  class="prxa-btn-primary" style="width: calc(100% - 64px + 16px) !important" (click)="registerAccount(acountType.Individual)">Register</button>
         </div>
+
       </mat-card-actions>
     </mat-card>
   </div>
@@ -60,7 +65,7 @@
   
         <mat-card-actions>
           <div class="card-buttons">
-            <button mat-button class="prxa-btn-primary" style="width: calc(100% - 64px + 16px) !important">Register</button>
+            <button mat-button class="prxa-btn-primary" style="width: calc(100% - 64px + 16px) !important" (click)="registerAccount(acountType.Corporation)">Register</button>
           </div>
         </mat-card-actions>
       </mat-card>
