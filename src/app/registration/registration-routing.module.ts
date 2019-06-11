@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SoleComponent } from './components/sole/sole.component';
 import { IncorporatedComponent } from './components/incorporated/incorporated.component';
+import { AccountComponent } from './components/account/account.component';
 
 const registrationRoutes: Routes = [
   {
@@ -16,6 +17,10 @@ const registrationRoutes: Routes = [
   {
     path: 'incorporated',
     component: IncorporatedComponent
+  },
+  {
+    path: 'account',
+    component: AccountComponent
   },
   {
     path: '**',
