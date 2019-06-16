@@ -150,25 +150,36 @@
               <form [formGroup]="addressFormGroup">
                 <ng-template matStepLabel>Done</ng-template>
 
-                <div fxLayout="row" fxLayout.lt-sm="column"  class="">
-                  <div fxFlex="100%" class="" >
-                    <label id="example-radio-group-label">Pick your account fund type</label>
-                    <br/>
-                    <mat-radio-group aria-label="Select account fund type">
-                      <mat-radio-button value="1">Option 1</mat-radio-button>
-                      <mat-radio-button value="2">Option 2</mat-radio-button>
+                <div fxLayout="row" fxLayout.lt-sm="column" class="">
+                  <div fxFlex="100%" style="text-align: start !important" >
+                    <label id="example-radio-group-label"
+                      class="">Pick your account fund type:&nbsp;&nbsp;&nbsp;</label>
+                    <mat-radio-group aria-label="Select account fund type" class="">
+                      <mat-radio-button value="accountFundType.PreFunded">Pre funded</mat-radio-button>
+                      <mat-radio-button value="accountFundType.PostFunded">Post funded</mat-radio-button>
                     </mat-radio-group>
                   </div>
                 </div>
 
+                <br/>
+
                 <div fxLayout="row" fxLayout.lt-sm="column" class="">
-                  <div fxFlex="100%" class="">
+                  <div fxFlex="100%">
+                    <mat-checkbox [(value)]="isTermsAndConditions"
+                      style="text-align: start !important"
+                      class="full-width float-left">Accept terms and condition!</mat-checkbox>
                   </div>
                 </div>
 
-                <div>
-                  <button mat-button class="float-left" matStepperPrevious>Back</button>
-                  <button mat-button class="float-left" (click)="stepper.reset()">Reset</button>
+                <br/>
+
+                <div fxLayout="row" class="">
+                  <div fxFlex="50%" class="" >
+                    <button mat-button class="float-left" matStepperPrevious>Back</button>
+                  </div>
+                  <div fxFlex="50%" class="" >
+                    <button mat-button class="float-right" (click)="stepper.reset()">Reset</button>
+                  </div>
                 </div>
 
                 <br/><br/><br/>
