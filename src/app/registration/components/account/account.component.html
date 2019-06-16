@@ -1,15 +1,179 @@
 <div fxLayout="row" class="">
 
-    <div fxFlex="10%" fxFlex.md="10%" class="" >
+  <div fxFlex="10%" fxFlex.md="10%" class="" >
+  </div>
+
+  <div fxFlex="80%" fxFlex.md="80%" class="" >
+    <div class="prxa-content prxa-content-header-margin prxa-title prxa-center">
+      <h3>Open your <strong>PreAxia HSA</strong></h3>
+    </div>
+  </div>
+
+  <div fxFlex="10%" fxFlex.md="10%" class="" >
+  </div>
+
+</div>
+
+<div fxLayout="row" fxLayout.lt-sm="column" class="">
+
+    <div fxFlex="25%" fxFlex.lt-lg="20%" fxFlex.lt-sm="5%" class="" >
     </div>
   
-    <div fxFlex="80%" fxFlex.md="80%" class="" >
-      <div class="prxa-content prxa-content-header-margin prxa-title prxa-center">
-        <h3>Open your <strong>PreAxia HSA</strong></h3>
-      </div>
-    </div>
+    <div fxFlex="50%" fxFlex.lt-lg="60%" fxFlex.lt-sm="90%" class="">
+      <mat-card class="prxa-card">
+        <mat-card-header>
+          <mat-card-title>{{ accountTitle }}</mat-card-title>
+          <mat-card-subtitle>{{ accountSubTitle }}</mat-card-subtitle>
+        </mat-card-header>
   
-    <div fxFlex="10%" fxFlex.md="10%" class="" >
+        <mat-card-content class="prxa-card-content">
+
+          <mat-horizontal-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="yourInfoFormGrp">
+              <form [formGroup]="yourInfoFormGrp">
+                <ng-template matStepLabel>Fill out your info</ng-template>
+
+                <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" class="">
+                  <div fxFlex="50%" class="" >
+                    <mat-form-field class="full-width" >
+                      <input matInput placeholder="First name" formControlName="firstName" required>
+                    </mat-form-field>
+                  </div>
+
+                  <div fxFlex="50%" class="" >
+                    <mat-form-field class="full-width" >
+                      <input matInput placeholder="Last name" formControlName="lastName" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" class="">
+                  <div fxFlex="50%" class="" >
+                    <mat-form-field class="full-width" >
+                      <input matInput type="tel" placeholder="Phone" formControlName="phone" required>
+                    </mat-form-field>
+                  </div>
+
+                  <div fxFlex="50%" class="" >
+                    <mat-form-field class="full-width" >
+                      <input matInput placeholder="Email" formControlName="emailAddress" required>
+                      <!-- <mat-error *ngIf="emailAddress && emailAddress.hasError('email') && !emailAddress.hasError('required')">
+                        Please enter a valid email address
+                      </mat-error> -->
+                      <mat-error *ngIf="!emailAddress || emailAddress?.hasError('required')">
+                        Email is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" class="">
+                  <div fxFlex="50%" class="" >
+                    <mat-form-field class="full-width" >
+                      <input matInput [max]="maxBirthDate" [matDatepicker]="picker" placeholder="Birthday" formControlName="birthday" required>
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+
+                  <div fxFlex="50%" class="" >
+                    <mat-form-field class="full-width">
+                      <mat-label>Select a gender</mat-label>
+                      <mat-select formControlName="gender">
+                        <mat-option>None</mat-option>
+                        <mat-option value="userGender.Female">Female</mat-option>
+                        <mat-option value="userGender.Male">Male</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div>
+                  <button mat-button style="float: right" matStepperNext>Next</button>
+                </div>
+
+              </form>
+              <br/>
+              <!-- {{ yourInfoFormGrp.status }} -->
+            </mat-step>
+
+            <mat-step [stepControl]="addressFormGroup">
+              <form [formGroup]="addressFormGroup">
+                <ng-template matStepLabel>Fill out your address</ng-template>
+
+                <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" class="">
+                  <div fxFlex="100%" class="" >
+                    <mat-form-field class="full-width" >
+                      <input matInput placeholder="Address" formControlName="address" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" class="">
+
+                  <div fxFlex="40%" class="" >
+                    <mat-form-field class="full-width" >
+                      <input matInput placeholder="City" formControlName="city" required>
+                    </mat-form-field>
+                  </div>
+
+                  <div fxFlex="40%" class="" >
+                    <mat-form-field class="full-width">
+                      <mat-label>Select a province</mat-label>
+                      <mat-select formControlName="province">
+                        <mat-option *ngFor="let prv of provinces" value="prv">{{ prv }}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div fxFlex="20%" class="" >
+                    <mat-form-field class="full-width" >
+                      <input matInput placeholder="Postal code" formControlName="postalCode" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div>
+                  <div fxLayout="row" class="">
+                    <div fxFlex="50%" class="" >
+                      <button mat-button class="float-left" matStepperPrevious>Back</button>
+                    </div>
+                    <div fxFlex="50%" class="" >
+                      <button mat-button class="float-right" matStepperNext>Next</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+            <mat-step>
+              <ng-template matStepLabel>Done</ng-template>
+              You are now done.
+              <div>
+                <button mat-button class="float-left" matStepperPrevious>Back</button>
+                <button mat-button class="float-left" (click)="stepper.reset()">Reset</button>
+              </div>
+
+              <br/><br/><br/>
+
+              <div>
+                <button mat-button [disabled]="!isSubmitEnable()"
+                  class="prxa-btn-primary"
+                  style="width: calc(100% - 64px + 16px) !important"
+                  (click)="registerAccount(acountType.Individual)">Submit</button>
+              </div>
+    
+            </mat-step>
+          </mat-horizontal-stepper>
+
+        </mat-card-content>
+  
+        <!-- <mat-card-actions>
+        </mat-card-actions> -->
+      </mat-card>
+    </div>
+
+    <div fxFlex="25%" fxFlex.lt-lg="20%" fxFlex.lt-sm="5%" class="" >
     </div>
   
   </div>
