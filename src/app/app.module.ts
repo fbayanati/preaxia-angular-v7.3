@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { AppComponent } from './app.component';
-import { PreaxiaFooterComponent } from './ui/preaxia-footer/preaxia-footer.component';
-import { PreaxiaNavComponent } from './ui/preaxia-nav/preaxia-nav.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { PreaxiaFooterComponent } from './ui/preaxia-footer/preaxia-footer.component';
+import { PreaxiaNavComponent } from './ui/preaxia-nav/preaxia-nav.component';
 
 import { environment } from '../environments/environment';
 import { MaterialModule } from './ui/module/material/material.module';
@@ -27,6 +27,7 @@ import { MaterialModule } from './ui/module/material/material.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
@@ -39,6 +40,6 @@ import { MaterialModule } from './ui/module/material/material.module';
   providers: [
     
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
