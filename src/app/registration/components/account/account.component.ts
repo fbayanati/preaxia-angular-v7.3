@@ -84,8 +84,16 @@ export class AccountComponent implements OnInit {
   }
 
   isSubmitEnable() {
-    console.log( `yourInfoFormGrp :: ${this.yourInfoFormGrp.valid} - addressFormGroup :: ${this.addressFormGroup.valid}` );
-    return this.yourInfoFormGrp.valid && this.addressFormGroup.valid;
+    let isValid = false;
+    if ( this.userAccountType === AccountType.Individual ) {
+      isValid = this.yourInfoFormGrp.valid && this.addressFormGroup.valid &&
+                this.accountFormGroup.valid && this.isTermsAndConditions;
+    } else if ( this.userAccountType === AccountType.Corporation ) {
+      isValid = this.companyInfoFormGrp.valid && this.yourInfoFormGrp.valid && this.addressFormGroup.valid &&
+                this.accountFormGroup.valid && this.isTermsAndConditions;
+    }
+
+    return isValid;
   }
 
 }
