@@ -10,6 +10,11 @@ export enum AccountFundType {
     PostFunded = 2
 }
 
+export enum UserGender {
+    Female = 1,
+    Male = 2
+} 
+
 export class Address {
     constructor(
         address: string,
@@ -28,8 +33,9 @@ export class User {
         lastName: string,
         phone?: string,
         email?: string,
+
         birthday?: string,
-        gender?: string,
+        gender?: UserGender,
         address?: Address
     ) {
         this.id = uuid.v4();
