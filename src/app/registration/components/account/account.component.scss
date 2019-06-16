@@ -40,7 +40,7 @@
     line-height: 1.5rem;
     font-size: 16px;
     font-weight: 300;
-    padding-bottom: 64px;
+    padding-bottom: 48px;
 }
 
 .card-buttons {
@@ -60,4 +60,21 @@
     font-weight: 400;
     font-size: 1.12em;
     line-height: 3em !important;
+}
+
+.full-width {
+    width: 100% !important;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.mat-button[disabled] {
+    background-color: gray;
+    color: darkgray;
 }
