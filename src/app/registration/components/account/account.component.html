@@ -146,23 +146,40 @@
               </form>
             </mat-step>
 
-            <mat-step>
-              <ng-template matStepLabel>Done</ng-template>
-              You are now done.
-              <div>
-                <button mat-button class="float-left" matStepperPrevious>Back</button>
-                <button mat-button class="float-left" (click)="stepper.reset()">Reset</button>
-              </div>
+            <mat-step [stepControl]="accountFormGroup">
+              <form [formGroup]="addressFormGroup">
+                <ng-template matStepLabel>Done</ng-template>
 
-              <br/><br/><br/>
+                <div fxLayout="row" fxLayout.lt-sm="column"  class="">
+                  <div fxFlex="100%" class="" >
+                    <label id="example-radio-group-label">Pick your account fund type</label>
+                    <br/>
+                    <mat-radio-group aria-label="Select account fund type">
+                      <mat-radio-button value="1">Option 1</mat-radio-button>
+                      <mat-radio-button value="2">Option 2</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                </div>
 
-              <div>
-                <button mat-button [disabled]="!isSubmitEnable()"
-                  class="prxa-btn-primary"
-                  style="width: calc(100% - 64px + 16px) !important"
-                  (click)="registerAccount(acountType.Individual)">Submit</button>
-              </div>
-    
+                <div fxLayout="row" fxLayout.lt-sm="column" class="">
+                  <div fxFlex="100%" class="">
+                  </div>
+                </div>
+
+                <div>
+                  <button mat-button class="float-left" matStepperPrevious>Back</button>
+                  <button mat-button class="float-left" (click)="stepper.reset()">Reset</button>
+                </div>
+
+                <br/><br/><br/>
+
+                <div>
+                  <button mat-button [disabled]="!isSubmitEnable()"
+                    class="prxa-btn-primary"
+                    style="width: calc(100% - 64px + 16px) !important"
+                    (click)="registerAccount(acountType.Individual)">Submit</button>
+                </div>
+              </form>
             </mat-step>
           </mat-horizontal-stepper>
 

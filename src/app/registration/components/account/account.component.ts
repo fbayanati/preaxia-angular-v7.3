@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { AccountType, UserGender } from 'src/app/model/account';
+import { AccountType, UserGender, AccountFundType } from 'src/app/model/account';
 import { Constants } from 'src/app/model/constants';
 
 @Component({
@@ -20,13 +20,17 @@ export class AccountComponent implements OnInit {
   yourInfoFormGrp: FormGroup;
   companyInfoFormGrp: FormGroup;
   addressFormGroup: FormGroup;
+  accountFormGroup: FormGroup;
 
   isLinear: boolean;
   maxBirthDate = new Date();
 
-  public accountType = AccountType;
-  public userGender = UserGender;
-  public provinces = Constants.provinces;
+  accountType = AccountType;
+  userGender = UserGender;
+  accountFundType = AccountFundType;
+  provinces = Constants.provinces;
+
+  isTermsAndConditions = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -71,6 +75,10 @@ export class AccountComponent implements OnInit {
       city: ['', Validators.required],
       province: ['', Validators.required],
       postalCode: ['', Validators.required]
+    });
+
+    this.accountFormGroup = this.fb.group( {
+      fundType: ['', Validators.required]
     });
   
   }
