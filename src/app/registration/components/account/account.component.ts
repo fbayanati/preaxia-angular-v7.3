@@ -1,26 +1,83 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { AccountType, UserGender } from 'src/app/model/account';
+import { Constants } from 'src/app/model/constants';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss']
+  styleUrls: ['./account.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccountComponent implements OnInit {
+
+  userAccountType: number;
+  accountTitle: string;
+  accountSubTitle: string;
+
+  yourInfoFormGrp: FormGroup;
+  companyInfoFormGrp: FormGroup;
+  addressFormGroup: FormGroup;
+
+  isLinear: boolean;
+  maxBirthDate = new Date();
+
+  public accountType = AccountType;
+  public userGender = UserGender;
+  public provinces = Constants.provinces;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
   ) {
-
+    this.isLinear = false;
+    this.createForms();
   }
 
   ngOnInit() {
-    let type = this.route.snapshot.paramMap.get('type');
+  
+    this.userAccountType = +this.route.snapshot.paramMap.get('type');
+
+    if ( this.userAccountType === AccountType.Individual ) {
+      this.accountTitle = 'Creating Sole Proprietorship account';
+      this.accountSubTitle = 'For self-employed and unincorporated businesses';
+    } else if ( this.userAccountType === AccountType.Corporation ) {
+      this.accountTitle = 'Incorporated Business';
+      this.accountSubTitle = 'For incorporated businesses with or without employees';
+    }
 
   }
 
+  createForms() {
+
+    this.yourInfoFormGrp = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phone: [''],
+      emailAddress: ['', [Validators.required, Validators.email] ],
+      birthday: [''],
+      gender: ['']
+    });
+
+    this.companyInfoFormGrp = this.fb.group({
+
+    });
+
+    this.addressFormGroup = this.fb.group( {
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      province: ['', Validators.required],
+      postalCode: ['', Validators.required]
+    });
+  
+  }
+
+  isSubmitEnable() {
+    console.log( `yourInfoFormGrp :: ${this.yourInfoFormGrp.valid} - addressFormGroup :: ${this.addressFormGroup.valid}` );
+    return this.yourInfoFormGrp.valid && this.addressFormGroup.valid;
+  }
 
 }
